@@ -212,7 +212,7 @@ func TestWriter(t *testing.T) {
 			t.Error("this writer does not use serror.DecodeMessage to extract log data")
 		}
 
-		if `{"message": "test message"}` != httpw.Body.String() {
+		if httpw.Body.String() != `{"message": "test message"}` {
 			t.Errorf("response json should clean from serror add-ons message:\n%q\n", httpw.Body.String())
 		}
 	})
@@ -245,7 +245,7 @@ func TestWriter(t *testing.T) {
 			t.Error("this writer does not use serror.DecodeMessage to extract log data")
 		}
 
-		if `{"message": "invalid character 'a' looking for beginning of object key string"}` != httpw.Body.String() {
+		if httpw.Body.String() != `{"message": "invalid character 'a' looking for beginning of object key string"}` {
 			t.Errorf("response json should clean from serror add-ons message:\n%q\n", httpw.Body.String())
 		}
 	})
@@ -278,7 +278,7 @@ func TestWriter(t *testing.T) {
 			t.Error("this writer does not use serror.DecodeMessage to extract log data")
 		}
 
-		if `{"message": "<test>invalid character 'a' looking for beginning of object key string"}` != httpw.Body.String() {
+		if httpw.Body.String() != `{"message": "<test>invalid character 'a' looking for beginning of object key string"}` {
 			t.Errorf("response json should clean from serror add-ons message:\n%q\n", httpw.Body.String())
 		}
 	})

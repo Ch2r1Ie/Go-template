@@ -93,7 +93,7 @@ func TestSetGetRefID(t *testing.T) {
 
 	refID := RefID(ctx)
 
-	if "1234" != refID {
+	if refID != "1234" {
 		t.Errorf("1234 was expected but get %q", refID)
 	}
 }
@@ -124,7 +124,7 @@ func TestRefID(t *testing.T) {
 		c.Request = req
 
 		result := RefID(c)
-		if "" != result {
+		if result != "" {
 			t.Errorf("expect empty string but actual %q\n", result)
 		}
 	})

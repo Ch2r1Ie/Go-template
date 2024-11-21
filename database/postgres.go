@@ -43,6 +43,7 @@ func Config(dbUrl string) *pgxpool.Config {
 //		}
 //		fmt.Println(pname, rprice)
 //	}
+
 func NewPostgresDB(dbUrl string) *pgxpool.Pool {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()

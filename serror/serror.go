@@ -59,6 +59,7 @@ func New(s string) *SError {
 //	  err := occurred()
 //	  err = serror.WrapSkip(err, 1)
 //	}
+
 func WrapSkip(err error, skip int) *SError {
 	skip += 2
 	if skip < 2 {
@@ -96,6 +97,7 @@ func caller(skip int) string {
 //		slog.Attr[0] = slog.String("file", "handler.go")
 //		slog.Attr[1] = slog.String("line", "23")
 //		slog.Attr[2] = slog.String("func", "handler.Serve")
+
 func DecodeMessage(s string) (msg string, attrs []slog.Attr) {
 	if s == "" {
 		return "", []slog.Attr{}
